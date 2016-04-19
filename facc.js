@@ -1,14 +1,13 @@
 #!/bin/bash
 
-process.argv.forEach((val, index, array) => { 
-    console.log(`${index}: ${val}`);
-});
-
-facc = function( n ) {
-    if (n==1) return 1
-    return n * facc(n-1)
+function facc(n) {
+    if (n==1) return 1;
+    return n * facc(n-1);
 }
 
-console.log('Die Fakultaet von 4 ist ' + facc(4) )
-console.log('Die Fakultaet von 10 ist ' + facc(10) )
-console.log('Die Fakultaet von 1 ist ' + facc(1) )
+// the first two elements of argv are
+// - the path to node
+// - the path to this file
+// So we only care about the third (index 2)
+var input = process.argv[2];
+console.log(facc(input));
